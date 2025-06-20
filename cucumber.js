@@ -13,7 +13,6 @@ module.exports = {
     format: [
       'summary',
       'progress-bar',
-    ],
-    publishQuiet: true,
+    ]
   },
 };
