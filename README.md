@@ -23,7 +23,7 @@ The project is organized as follows:
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/EmbeddedMhawar/HackathonEHR
     cd <repository-name>
     ```
 2.  **Install dependencies:**
