@@ -47,11 +47,18 @@ You can run the tests using the `npx cucumber-js` command. Here are some example
     ```bash
     npx cucumber-js --tags "@HappyPath"
     ```
-    Similarly, to run tests tagged as `@SmokeTest` (if defined):
+    Similarly, to run tests tagged as `@Registration`:
     ```bash
-    npx cucumber-js --tags "@SmokeTest"
+    npx cucumber-js --tags "@Registration"
     ```
-
+    Or to run multiple tags:
+    ```bash
+    npx cucumber-js --tags "@HappyPath or @Registration"
+    npx cucumber-js --tags "@HappyPath and @Registration"
+    ```
+    and: scenario must have both tags 
+    or: scenario must have either tag
+   
 3.  **Run a specific feature file:**
     To execute tests from a particular feature file, provide the path to the file:
     ```bash
