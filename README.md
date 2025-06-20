@@ -56,8 +56,7 @@ You can run the tests using the `npx cucumber-js` command. Here are some example
     npx cucumber-js --tags "@HappyPath or @Registration"
     npx cucumber-js --tags "@HappyPath and @Registration"
     ```
-    and: scenario must have both tags
-    
+    and: scenario must have both tags |
     or: scenario must have either tag
    
 3.  **Run a specific feature file:**
