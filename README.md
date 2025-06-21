@@ -67,11 +67,3 @@ You can run the tests using the `npx cucumber-js` command. Here are some example
     npx cucumber-js features/UserRegistration.feature
     npx cucumber-js features/MedicalRecordHash.feature
     ```
-
-## Contributing
-
-Information on how to contribute to the project will be added here.
-
-## License
-
-Information about the project's license will be added here.
