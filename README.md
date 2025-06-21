@@ -1,35 +1,50 @@
 # EHR Platform Test Automation Suite
 
-This project is a test automation suite for an Electronic Health Record (EHR) platform. It uses Cucumber.js for behavior-driven development (BDD) and TypeScript for writing step definitions. The tests interact with the Hedera network for certain functionalities.
+This project is a test automation suite for an Electronic Health Record (EHR) platform. It uses Cucumber.js for behavior-driven development (BDD) and TypeScript for writing step definitions. The tests interact with the Hedera network and Supabase for user and data management.
 
 ## Project Structure
 
 The project is organized as follows:
 
-- `features/`: This directory contains the Gherkin feature files (`.feature`). These files describe the application's behavior in a human-readable format.
-  - `0PatientRegistration.feature`: Feature file for patient registration scenarios.
-  - `1PatientDataSharing.feature`: Feature file for patient data sharing scenarios.
-- `step_definitions/`: This directory holds the TypeScript (`.ts`) files that implement the steps defined in the Gherkin feature files.
-  - `0PatientRegistration.ts`: Step definitions for patient registration features.
-  - `1patientDataSharing.steps.ts`: Step definitions for patient data sharing features.
+- `features/`: Contains the Gherkin feature files (`.feature`). These files describe the application's behavior in a human-readable format.
+  - `UserRegistration.feature`: User registration and role assignment scenarios.
+  - `MedicalRecordHash.feature`: Medical record hash submission and verification scenarios.
+- `features/step_definitions/`: Holds the TypeScript (`.ts`) files that implement the steps defined in the Gherkin feature files.
+  - `1UserRegistration.steps.ts`: Step definitions for user registration features.
+  - `MedicalRecordHash.steps.ts`: Step definitions for medical record hash features.
+- `src/`: Application source code, including:
+  - `index2.ts`: User registration and role assignment logic.
+  - `submitMessage.ts`: Functions for submitting and verifying medical record hashes on Hedera.
+  - `createHederaAccount.ts`: Utility for creating Hedera accounts.
+  - `supabaseClient.ts`: Supabase client initialization.
 
 ## Key Technologies
 
-- **Cucumber.js:** A BDD framework for writing acceptance tests.
-- **TypeScript:** A superset of JavaScript that adds static typing.
-- **Hedera Network:** A distributed ledger technology used for specific functionalities within the EHR platform.
+- **Cucumber.js:** BDD framework for writing acceptance tests.
+- **TypeScript:** Superset of JavaScript with static typing.
+- **Hedera Network:** Distributed ledger for secure record-keeping.
+- **Supabase:** Backend-as-a-service for authentication and database.
 
 ## Setup and Installation
 
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/EmbeddedMhawar/HackathonEHR
-    cd <repository-name>
+    cd HackathonEHR
     ```
 2.  **Install dependencies:**
-    Ensure you have Node.js and npm installed. Then, run the following command in the project root to install the necessary packages:
+    Ensure you have Node.js and npm installed. Then, run:
     ```bash
     npm install
+    ```
+3.  **Configure environment variables:**
+    Create a `.env` file in the project root with your Hedera and Supabase credentials:
+    ```env
+    MY_ACCOUNT_ID=0.0.xxxx
+    MY_PRIVATE_KEY=302exxx
+    TOPIC_ID=0.0.xxxxx
+    SUPABASE_URL=your_supabase_url
+    SUPABASE_ANON_KEY=your_supabase_anon_key
     ```
 
 ## Running Tests
@@ -37,37 +52,20 @@ The project is organized as follows:
 You can run the tests using the `npx cucumber-js` command. Here are some examples:
 
 1.  **Run all tests:**
-    This command will execute all feature files found in the `features/` directory.
     ```bash
     npx cucumber-js
     ```
-
 2.  **Run tests by tag:**
-    You can run specific sets of tests by using tags defined in your feature files. For example, to run only the tests tagged as `@HappyPath`:
     ```bash
     npx cucumber-js --tags "@HappyPath"
-    ```
-    Similarly, to run tests tagged as `@Registration`:
-    ```bash
     npx cucumber-js --tags "@Registration"
-    ```
-    Or to run multiple tags:
-    ```bash
     npx cucumber-js --tags "@HappyPath or @Registration"
     npx cucumber-js --tags "@HappyPath and @Registration"
     ```
-    | or: scenario must have either tag |
-     and: scenario must have both tags |
-    
-   
 3.  **Run a specific feature file:**
-    To execute tests from a particular feature file, provide the path to the file:
     ```bash
-    npx cucumber-js features/0PatientRegistration.feature
-    ```
-    Or for another feature:
-    ```bash
-    npx cucumber-js features/1PatientDataSharing.feature
+    npx cucumber-js features/UserRegistration.feature
+    npx cucumber-js features/MedicalRecordHash.feature
     ```
 
 ## Contributing
