@@ -4,6 +4,7 @@ import {
   AccountId,
   PrivateKey,
 } from "@hashgraph/sdk";
+import createTopic from "./createTopic"; // Adjust the path if needed
 import { submitMedicalHash,checkHashExistence } from "./submitMessage";
 
 dotenv.config();
@@ -14,8 +15,9 @@ async function main() {
     PrivateKey.fromString(process.env.MY_PRIVATE_KEY!)
   );
 
+  await createTopic(client);
 
-  const recordHash = "ae4391f3b0e82f..." // SHA-256, IPFS CID, etc. exempl
+  const recordHash = "ae4391f3b0e82f..." // SHA-256, IPFS CID, etc. exemple
 
   await submitMedicalHash(client, process.env.TOPIC_ID!, recordHash);
 
