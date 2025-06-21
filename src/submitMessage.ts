@@ -28,7 +28,7 @@ export async function checkHashExistence(
       throw new Error(`Failed to fetch messages: ${res.statusText}`);
     }
 
-    const json = await res.json();
+    const json = await res.json() as { messages: { message: string }[], links: { next: string | null } };
 
     for (const msg of json.messages) {
       const messageString = Buffer.from(msg.message, "base64").toString("utf-8");
