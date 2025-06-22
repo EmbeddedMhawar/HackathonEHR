@@ -1,6 +1,17 @@
 import fetch from "node-fetch";
 import { Client, TopicMessageSubmitTransaction } from "@hashgraph/sdk";
 
+interface MirrorNodeMessage {
+  message: string;
+}
+
+interface MirrorNodeResponse {
+  messages: MirrorNodeMessage[];
+  links: {
+    next: string | null;
+  };
+}
+
 export async function submitMedicalHash(client: Client, topicId: string, hash: string) {
   const submitTx = await new TopicMessageSubmitTransaction()
     .setTopicId(topicId)
@@ -28,7 +39,7 @@ export async function checkHashExistence(
       throw new Error(`Failed to fetch messages: ${res.statusText}`);
     }
 
-    const json = await res.json() as { messages: { message: string }[], links: { next: string | null } };
+    const json = (await res.json()) as MirrorNodeResponse;
 
     for (const msg of json.messages) {
       const messageString = Buffer.from(msg.message, "base64").toString("utf-8");
@@ -42,5 +53,3 @@ export async function checkHashExistence(
 
   return false;
 }
-
-

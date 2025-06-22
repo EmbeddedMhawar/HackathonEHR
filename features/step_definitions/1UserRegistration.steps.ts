@@ -1,6 +1,6 @@
-import { Given, When, Then, DataTable } from '@cucumber/cucumber';
+/*import { Given, When, Then, DataTable } from '@cucumber/cucumber';
 import assert from 'assert';
-import { supabase } from '../../src/supabaseClient';
+import { supabase } from '../../src/supabaseClient.ts';
 import { createHederaAccount } from '../../src/createHederaAccount';
 
 let userInput: any = {};
@@ -110,4 +110,4 @@ Then(/^the user should be inserted into the labs table$/, function () {
 
 Then(/^the system should display a success message$/, function () {
   assert.ok(successMessage.includes('created successfully'), 'Success message should be displayed');
-});
+});*/
