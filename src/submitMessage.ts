@@ -17,9 +17,9 @@ export async function submitMedicalHash(client: Client, topicId: string, hash: s
     .setTopicId(topicId)
     .setMessage(hash)
     .execute(client);
-
   const receipt = await submitTx.getReceipt(client);
   console.log("✅ Message submitted. Status:", receipt.status.toString());
+  return receipt; // Return the receipt for further inspection in step definitions
 }
 
 export async function checkHashExistence(
