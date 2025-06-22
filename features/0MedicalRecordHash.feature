@@ -6,17 +6,20 @@ Feature: Medical Record Hash Submission and Verification on Hedera
   Background:
     Given the EHR platform is connected to the Hedera network
 
-    # TODO: Implement the scenario for creating a hash from a medical record.
+  # TODO: Implement the scenario for creating a hash from a medical record.
+  
   # Example:
-  # Scenario: Creating a hash from a medical record
-  #   Given a medical record for patient "patient-123" with the following details:
-  #     | field       | value                   |
-  #     | diagnosis   | "Hypertension"          |
-  #     | treatment   | "Lisinopril 10mg daily" |
-  #     | date        | "2023-10-27"            |
-  #   When the system serializes the medical record to a JSON string
-  #   And computes the SHA-256 hash of the JSON string
-  #   Then the resulting hash is stored for submission
+  #Scenario: Creating a hash from a medical record document
+  #  Given a medical record document in a specific format (e.g., PDF, DICOM, HL7)
+  #  And the medical record contains the following details:
+  #   | field       | value                   |
+  #   | diagnosis   | "Hypertension"          |
+  #   | treatment   | "Lisinopril 10mg daily" |
+  #   | date        | "2023-10-27"            |
+  #  When the system serializes the medical record to a JSON string
+  #  When the system extracts and standardizes the medical record data into a canonical JSON format
+  #  And computes the SHA-256 hash of the JSON string
+  #  Then the resulting hash is stored for submission
 
   Scenario: Submitting a medical record hash to Hedera
     Given a medical record is hashed using a cryptographic hash function
