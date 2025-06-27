@@ -56,4 +56,4 @@ Create a clear "Definition of Done" that the team agrees upon. This ensures that
 *   The feature is manually tested and works as expected.
 *   The code is merged into the main branch.
 
-By following these guidelines, you can effectively implement Scrum in your EHR project and improve your team's productivity and the quality of your product.
+By following these guidelines, we can effectively implement Scrum in our EHR project and improve our team's productivity and the quality of our product.
