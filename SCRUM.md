@@ -33,7 +33,7 @@ Scrum is an agile framework for developing, delivering, and sustaining complex p
 The existing `.feature` files provide a solid foundation for your Product Backlog. Here's how you can build upon them:
 
 1.  **Refine User Stories:** Review the `Scenario` sections in your `.feature` files. Ensure they are clear, concise, and follow the INVEST (Independent, Negotiable, Valuable, Estimable, Small, Testable) criteria.
-2.  **Prioritize the Backlog:** The Product Owner should order the user stories in the backlog based on their value, risk, and dependencies. For example, `1UserRegistration.feature` might be a higher priority than `0MedicalRecordHash.feature`.
+2.  **Prioritize the Backlog:** The Product Owner should order the user stories in the backlog based on their value, risk, and dependencies. For example, `0MedicalRecordHash.feature` might be a higher priority than `1UserRegistration.feature`.
 3.  **Break Down User Stories:** Break down larger user stories into smaller, more manageable tasks. For example, the "Registering a new doctor" scenario can be broken down into:
     *   Create the UI for the registration form.
     *   Implement the `signUpPatient` function.
