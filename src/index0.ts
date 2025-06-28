@@ -4,8 +4,9 @@ import {
   AccountId,
   PrivateKey,
 } from "@hashgraph/sdk";
-import createTopic from "./createTopic"; // Adjust the path if needed
 import { submitMedicalHash,checkHashExistence } from "./submitMessage";
+
+import { sha256HashFile } from "./hashUtil";
 
 dotenv.config();
 
@@ -15,13 +16,19 @@ async function main() {
     PrivateKey.fromString(process.env.MY_PRIVATE_KEY!)
   );
 
-  await createTopic(client);
+  const filePath = "C:/Users/user/Downloads/amine.pdf";  // HERE U PUT THE PATH OF THE FILE (PDF)
 
-  const recordHash = "ae4391f3b0e82f..." // SHA-256, IPFS CID, etc. exemple
+  const fileHash = sha256HashFile(filePath);
 
-  await submitMedicalHash(client, process.env.TOPIC_ID!, recordHash);
+  console.log("Document SHA-256 hash:", fileHash);
 
-   const exists = await checkHashExistence(process.env.TOPIC_ID!, recordHash);
+
+  await submitMedicalHash(client, process.env.TOPIC_ID!, fileHash);
+
+
+  await new Promise(resolve => setTimeout(resolve, 10000)); // 10 seconds delay
+
+   const exists = await checkHashExistence(process.env.TOPIC_ID!, fileHash);
    console.log(`Hash exists: ${exists}`);
 }
 
